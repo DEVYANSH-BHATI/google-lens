@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_shade1"
+    tools:context=".HomeFragment">
+
+    <ImageView
+        android:id="@+id/idIVImageCapture"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/camera512" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Your Image will appear here"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/idIVImageCapture"
+        android:textColor="@color/yellow"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:id="@+id/idTVDetectedText"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="4dp"
+        />
+
+    <Button
+        android:id="@+id/idbtnSnap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idTVDetectedText"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/rounded_corner"
+        android:text="Snap"
+        android:textAllCaps="false"
+        android:textSize="20dp"
+        app:backgroundTint="@color/yellow" />
+    <Button
+        android:id="@+id/idbtnDetect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:textSize="20dp"
+        android:text="Detect"
+        android:layout_below="@id/idbtnSnap"
+        android:layout_marginTop="30dp"
+        android:textAllCaps="false"
+        android:background="@drawable/rounded_corner"
+        app:backgroundTint="@color/yellow"
+        />
+
+
+</RelativeLayout>

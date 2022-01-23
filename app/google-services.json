@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146755684447",
+    "project_id": "text-analyzer-de664",
+    "storage_bucket": "text-analyzer-de664.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146755684447:android:e0479a0c5b88e298e433ea",
+        "android_client_info": {
+          "package_name": "com.example.textanalyzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146755684447-2lc456qdc3j7u5j07eo6iaene5lgji5a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6kQpeiLcj7ZBvXBUpeF-oOKZMvxn3rTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146755684447-2lc456qdc3j7u5j07eo6iaene5lgji5a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

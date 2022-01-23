@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/search32"
+        android:title="Recogniser" />
+    <item
+        android:id="@+id/nav_fav"
+        android:icon="@drawable/translate32"
+        android:title="Translate" />
+    <item
+        android:id="@+id/nav_search"
+        android:icon="@drawable/web32"
+        android:title="Lens" />
+    <item
+        android:id="@+id/nav_shop"
+        android:icon="@drawable/user32"
+        android:title="About" />
+</menu>
