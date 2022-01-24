@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "366657081962",
+    "project_id": "goodle-lens2",
+    "storage_bucket": "goodle-lens2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366657081962:android:69e399021164010c4d7013",
+        "android_client_info": {
+          "package_name": "com.devyansh.cse.goodle_lens2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "366657081962-uco6l4cq42vn507krrdsnq2b5k5njnf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtt2SAgu87-Vvjkwz_8f95_TVPqQ2XXCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "366657081962-uco6l4cq42vn507krrdsnq2b5k5njnf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
