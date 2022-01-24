@@ -1,5 +1,6 @@
 package com.example.textanalyzer;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -47,7 +48,7 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final int RESULT_OK =1;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -240,7 +241,7 @@ public class SearchFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         // inside on activity result method we are
         // setting our image to our image view from bitmap.
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
             imageBitmap = (Bitmap) extras.get("data");
             // on below line we are setting our
