@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@color/black_shade1"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SearchFragment">
 
     <!--image view for displaying our image-->
     <ImageView
@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:background="@drawable/camera512"
+
 
 
         android:scaleType="centerCrop" />
@@ -58,16 +58,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-           android:background="@drawable/rounded_corner"
-            android:layout_marginStart="5dp"
+            android:background="@drawable/rounded_corner"
+            android:layout_marginStart="45dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="45dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:lines="2"
             android:text="Snap"
             android:textAllCaps="false"
-           app:backgroundTint="@color/yellow"
+            app:backgroundTint="@color/yellow"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -77,12 +77,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="45dp"
             android:background="@drawable/rounded_corner"
             app:backgroundTint="@color/yellow"
 
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="45dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
             android:layout_marginVertical="30dp"

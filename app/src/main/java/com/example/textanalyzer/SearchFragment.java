@@ -1,27 +1,21 @@
 package com.example.textanalyzer;
 
-import android.content.Context;
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.content.pm.PackageManager;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -113,8 +107,8 @@ public class SearchFragment extends Fragment {
 //        setContentView(R.layout.fragment_search);
 
         // initializing all our variables for views
-        img = (ImageView) view.findViewById(R.id.image);
-        snap = (Button) view.findViewById(R.id.snapbtn);
+        img =  view.findViewById(R.id.image);
+        snap =  view.findViewById(R.id.snapbtn);
         searchResultsBtn = view.findViewById(R.id.idBtnSearchResuts);
         resultRV = view.findViewById(R.id.idRVSearchResults);
 
@@ -137,7 +131,9 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // calling a method to capture an image.
-                dispatchTakePictureIntent();
+
+                    dispatchTakePictureIntent();
+
             }
         });
 
@@ -153,8 +149,9 @@ public class SearchFragment extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        return view;
     }
+
 
     private void getResults() {
         // inside the label image method we are calling a firebase vision image
@@ -232,7 +229,7 @@ public class SearchFragment extends Fragment {
     private void dispatchTakePictureIntent() {
         // inside this method we are calling an implicit intent to capture an image.
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager())     != null) {
             // calling a start activity for result when image is captured.
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
@@ -252,3 +249,4 @@ public class SearchFragment extends Fragment {
         }
     }
 }
+
