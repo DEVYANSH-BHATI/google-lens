@@ -1,5 +1,6 @@
 package com.example.textanalyzer;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -20,7 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.content.pm.PackageManager;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -52,6 +53,7 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final int RESULT_OK =1;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -79,25 +81,51 @@ public class SearchFragment extends Fragment {
         return fragment;
     }
 
+
+    View view;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+    private ImageView img;
+    private Button snap, searchResultsBtn;
+    private Bitmap imageBitmap;
+    private RecyclerView resultRV;
+    private SearchResultsRVAdapter searchResultsRVAdapter;
+    private ArrayList<DataModal> dataModalArrayList;
+    private String title, link, displayed_link, snippet;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        view =  inflater.inflate(R.layout.fragment_search, container, false);
+//        setContentView(R.layout.fragment_search);
 
         // initializing all our variables for views
-        img = (ImageView) findViewById(R.id.image);
-        snap = (Button) findViewById(R.id.snapbtn);
-        searchResultsBtn = findViewById(R.id.idBtnSearchResuts);
-        resultRV = findViewById(R.id.idRVSearchResults);
+        img = (ImageView) view.findViewById(R.id.image);
+        snap = (Button) view.findViewById(R.id.snapbtn);
+        searchResultsBtn = view.findViewById(R.id.idBtnSearchResuts);
+        resultRV = view.findViewById(R.id.idRVSearchResults);
 
         // initializing our array list
         dataModalArrayList = new ArrayList<>();
 
         // initializing our adapter class.
-        searchResultsRVAdapter = new SearchResultsRVAdapter(dataModalArrayList, MainActivity.this);
+        searchResultsRVAdapter = new SearchResultsRVAdapter(dataModalArrayList, getActivity());
 
         // layout manager for our recycler view.
-        LinearLayoutManager manager = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
 
         // on below line we are setting layout manager
         // and adapter to our recycler view.
@@ -122,12 +150,9 @@ public class SearchFragment extends Fragment {
             }
         });
 
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
@@ -151,7 +176,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onFailure(@NonNull Exception e) {
                 // displaying error message.
-                Toast.makeText(MainActivity.this, "Fail to detect image..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Fail to detect image..", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -161,7 +186,7 @@ public class SearchFragment extends Fragment {
         String url = "https://serpapi.com/search.json?q=" + searchQuery.trim() + "&location=Delhi,India&hl=en&gl=us&google_domain=google.com&api_key=" + apiKey;
 
         // creating a new variable for our request queue
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
@@ -196,7 +221,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // displaying error message.
-                Toast.makeText(MainActivity.this, "No Result found for the search query..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "No Result found for the search query..", Toast.LENGTH_SHORT).show();
             }
         });
         // adding json object request to our queue.
@@ -207,14 +232,14 @@ public class SearchFragment extends Fragment {
     private void dispatchTakePictureIntent() {
         // inside this method we are calling an implicit intent to capture an image.
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        if (takePictureIntent.resolveActivity(getActivity().getPackageManager()) != null) {
             // calling a start activity for result when image is captured.
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // inside on activity result method we are
         // setting our image to our image view from bitmap.
