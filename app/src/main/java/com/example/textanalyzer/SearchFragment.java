@@ -36,24 +36,19 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SearchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class SearchFragment extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -76,7 +71,6 @@ public class SearchFragment extends Fragment {
         return fragment;
     }
 
-
     View view;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private ImageView img;
@@ -86,6 +80,7 @@ public class SearchFragment extends Fragment {
     private SearchResultsRVAdapter searchResultsRVAdapter;
     private ArrayList<DataModal> dataModalArrayList;
     private String title, link, displayed_link, snippet;
+    int checkFlag=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,46 +90,34 @@ public class SearchFragment extends Fragment {
         }
     }
 
-
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view =  inflater.inflate(R.layout.fragment_search, container, false);
 //        setContentView(R.layout.fragment_search);
-
         // initializing all our variables for views
         img =  view.findViewById(R.id.image);
         snap =  view.findViewById(R.id.snapbtn);
         searchResultsBtn = view.findViewById(R.id.idBtnSearchResuts);
         resultRV = view.findViewById(R.id.idRVSearchResults);
-
         // initializing our array list
         dataModalArrayList = new ArrayList<>();
-
         // initializing our adapter class.
         searchResultsRVAdapter = new SearchResultsRVAdapter(dataModalArrayList, getActivity());
-
         // layout manager for our recycler view.
         LinearLayoutManager manager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-
         // on below line we are setting layout manager
         // and adapter to our recycler view.
         resultRV.setLayoutManager(manager);
         resultRV.setAdapter(searchResultsRVAdapter);
-
         // adding on click listener for our snap button.
         snap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // calling a method to capture an image.
-
                     dispatchTakePictureIntent();
-
+                    checkFlag=1;
             }
         });
 
@@ -143,26 +126,22 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // calling a method to get search results.
-                getResults();
+                if(checkFlag==0){
+                    Toast.makeText(getActivity(), "Please Capture an Image", Toast.LENGTH_SHORT).show();
+                }
+                else getResults();
             }
         });
-
-
-
-
         return view;
     }
-
 
     private void getResults() {
         // inside the label image method we are calling a firebase vision image
         // and passing our image bitmap to it.
         FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(imageBitmap);
-
         // on below line we are creating a labeler for our image bitmap and
         // creating a variable for our firebase vision image labeler.
         FirebaseVisionImageLabeler labeler = FirebaseVision.getInstance().getOnDeviceImageLabeler();
-
         // calling a method to process an image and adding on success listener method to it.
         labeler.processImage(image).addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionImageLabel>>() {
             @Override
@@ -225,7 +204,6 @@ public class SearchFragment extends Fragment {
         // adding json object request to our queue.
         queue.add(jsonObjectRequest);
     }
-
     // method to capture image.
     private void dispatchTakePictureIntent() {
         // inside this method we are calling an implicit intent to capture an image.
