@@ -1,5 +1,5 @@
 package com.example.textanalyzer;
-
+//this is lens branch
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
