@@ -7,6 +7,18 @@
     android:background="@color/black_shade1"
     tools:context=".HomeFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Text Detector"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"
+        android:textSize="35sp"
+        android:textColor="@color/yellow"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:paddingHorizontal="4dp"/>
+
     <ImageView
         android:id="@+id/idIVImageCapture"
         android:layout_width="250dp"
@@ -27,7 +39,7 @@
         android:textAlignment="center"
         android:gravity="center"
         android:id="@+id/idTVDetectedText"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:padding="4dp"
         />
@@ -43,8 +55,9 @@
         android:background="@drawable/rounded_corner"
         android:text="Snap"
         android:textAllCaps="false"
-        android:textSize="20dp"
-        app:backgroundTint="@color/yellow" />
+        android:textSize="20dp"/>
+<!--        app:backgroundTint="@color/yellow" -->
+
     <Button
         android:id="@+id/idbtnDetect"
         android:layout_width="match_parent"
@@ -56,9 +69,8 @@
         android:layout_below="@id/idbtnSnap"
         android:layout_marginTop="30dp"
         android:textAllCaps="false"
-        android:background="@drawable/rounded_corner"
-        app:backgroundTint="@color/yellow"
-        />
+        android:background="@drawable/rounded_corner"/>
+<!--        app:backgroundTint="@color/yellow"-->
 
 
 </RelativeLayout>
