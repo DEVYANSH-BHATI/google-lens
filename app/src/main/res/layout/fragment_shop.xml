@@ -42,7 +42,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentRight="true"
-                android:src="@drawable/camera256" />
+                android:src="@drawable/ai" />
         </RelativeLayout>
 
         <GridLayout

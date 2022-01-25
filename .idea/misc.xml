@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2037037037037037" />
+        <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/drawable/ic_right_arrow.xml" value="0.18333333333333332" />
+        <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/drawable/item_selector.xml" value="0.18333333333333332" />
+        <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/drawable/rounded_corner.xml" value="0.18333333333333332" />
         <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/layout/activity_main.xml" value="0.203125" />
         <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/layout/fragment_fav.xml" value="0.203125" />
         <entry key="..\:/PROJECT/New folder/TextAnalyzer_android/app/src/main/res/layout/fragment_home.xml" value="0.203125" />
