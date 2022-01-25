@@ -65,7 +65,7 @@
         android:textSize="20dp"
         android:text="Detect"
         android:layout_below="@id/idbtnSnap"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textAllCaps="false"
         android:background="@drawable/rounded_corner"/>
 </RelativeLayout>

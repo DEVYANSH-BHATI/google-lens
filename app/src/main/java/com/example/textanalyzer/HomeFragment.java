@@ -73,6 +73,7 @@ public class HomeFragment extends Fragment {
     private TextView resultTV;
     private Button btnSnap, btnDetect;
     private Bitmap imageBitmap;
+    int checkFlag=0;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
@@ -99,6 +100,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 if(checkPermissions()){
                     captureImage();
+                    checkFlag=1;
                 }
                 else{
                     requestPermission();
@@ -108,7 +110,10 @@ public class HomeFragment extends Fragment {
         btnDetect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                detectText();
+                if(checkFlag==0){
+                    Toast.makeText(getActivity(), "Please Capture an Image", Toast.LENGTH_SHORT).show();
+                }
+                else detectText();
             }
         });
         return view;

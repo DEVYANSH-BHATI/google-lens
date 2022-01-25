@@ -80,6 +80,7 @@ public class SearchFragment extends Fragment {
     private SearchResultsRVAdapter searchResultsRVAdapter;
     private ArrayList<DataModal> dataModalArrayList;
     private String title, link, displayed_link, snippet;
+    int checkFlag=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +117,7 @@ public class SearchFragment extends Fragment {
             public void onClick(View v) {
                 // calling a method to capture an image.
                     dispatchTakePictureIntent();
+                    checkFlag=1;
             }
         });
 
@@ -124,7 +126,10 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // calling a method to get search results.
-                getResults();
+                if(checkFlag==0){
+                    Toast.makeText(getActivity(), "Please Capture an Image", Toast.LENGTH_SHORT).show();
+                }
+                else getResults();
             }
         });
         return view;
