@@ -2,15 +2,12 @@ package com.example.textanalyzer;
 
 import android.app.Activity;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import android.content.Intent;
 import android.speech.RecognizerIntent;
@@ -19,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
@@ -29,7 +25,6 @@ import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator;
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -39,20 +34,16 @@ import java.util.Locale;
  * create an instance of this fragment.
  */
 public class FavFragment extends Fragment {
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     public FavFragment() {
         // Required empty public constructor
     }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -76,13 +67,10 @@ public class FavFragment extends Fragment {
     private ImageView micIV;
     private MaterialButton translateBtn;
     private TextView translatedTV;
-
     String[] fromLanguages = {"From", "English", "African", "Arabic", "Belarusian", "Bulgarian", "Bengali",
             "Catalan", "Czech", "Welsh", "Hindi", "Urdu" };
-
     String[] toLanguages = {"To", "English", "African", "Arabic", "Belarusian", "Bulgarian", "Bengali",
             "Catalan", "Czech", "Welsh", "Hindi", "Urdu" };
-
     private static final int REQUEST_PERMISSION_CODE=1;
     int laguageCode, fromLanguageCode, toLanguageCode = 0;
 
@@ -93,11 +81,9 @@ public class FavFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     View view;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -116,32 +102,26 @@ public class FavFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 fromLanguageCode = getLanguageCode(fromLanguages[position]);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
         ArrayAdapter fromAdapter = new ArrayAdapter(getActivity(), R.layout.spinner_item, fromLanguages);
         fromAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fromSpinner.setAdapter(fromAdapter);
-
 
         toSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 toLanguageCode= getLanguageCode(toLanguages[position]);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
         ArrayAdapter toAdapter = new ArrayAdapter(getActivity(), R.layout.spinner_item, toLanguages);
         toAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         toSpinner.setAdapter(toAdapter);
-
 
         translateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,7 +149,6 @@ public class FavFragment extends Fragment {
                 i.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
                 i.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
                 i.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to Convert into Text");
-
                 try {
                     startActivityForResult(i, REQUEST_PERMISSION_CODE);
                 }
@@ -179,8 +158,6 @@ public class FavFragment extends Fragment {
                 }
             }
         });
-
-
         return view;
     }
 
@@ -203,7 +180,6 @@ public class FavFragment extends Fragment {
                 .build();
 
         FirebaseTranslator translator= FirebaseNaturalLanguage.getInstance().getTranslator(options);
-
         FirebaseModelDownloadConditions conditions= new FirebaseModelDownloadConditions.Builder()
                 .build();
 
@@ -230,7 +206,6 @@ public class FavFragment extends Fragment {
             }
         });
     }
-
 
     public int getLanguageCode(String language){
         int languageCode;
@@ -270,6 +245,4 @@ public class FavFragment extends Fragment {
         }
         return languageCode;
     }
-
-
 }

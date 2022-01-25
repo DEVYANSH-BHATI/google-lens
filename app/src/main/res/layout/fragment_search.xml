@@ -20,7 +20,6 @@
         android:textStyle="bold"
         android:paddingHorizontal="4dp"/>
 
-    <!--image view for displaying our image-->
     <ImageView
         android:id="@+id/image"
         android:layout_width="250dp"
@@ -28,12 +27,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:src="@drawable/camera512" 
-
-
+        android:src="@drawable/camera512"
         android:scaleType="centerCrop" />
-
-    <!--recycler view for displaying the list of result-->
 
     <TextView
         android:id="@+id/textviewp"
@@ -43,7 +38,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:padding="4dp"
         android:text="Your Image will appear here"
@@ -56,41 +51,27 @@
         android:id="@+id/idLLButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image"
+        android:layout_below="@+id/textviewp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical">
-
-        <!--button for capturing our image-->
         <Button
             android:id="@+id/snapbtn"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="50dp"
             android:background="@drawable/rounded_corner"
             android:text="Snap"
             android:textAllCaps="false"
             android:textSize="20dp"/>
-
-        <!--button for detecting the objects-->
         <Button
             android:id="@+id/idBtnSearchResuts"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="50dp"
             android:background="@drawable/rounded_corner"
             android:text="Get Search Results"
             android:textAllCaps="false"
             android:textSize="20dp"/>
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -98,6 +79,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/idLLButtons"
-        android:layout_marginTop="8dp" />
-
+        android:layout_marginTop="10dp" />
 </RelativeLayout>

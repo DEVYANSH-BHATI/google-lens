@@ -18,7 +18,6 @@
             android:layout_marginTop="30dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp">
-
             <TextView
                 android:id="@+id/appName"
                 android:layout_width="wrap_content"
@@ -27,7 +26,6 @@
                 android:textColor="@color/yellow"
                 android:textStyle="bold"
                 android:textSize="40dp" />
-
             <TextView
                 android:id="@+id/appDesc"
                 android:layout_marginTop="10dp"
@@ -39,8 +37,6 @@
                 android:text="ALL-IN-ONE MOBILE APP FOR TEXT DETECTION, LANG TRANSLATION AND OBJECT IDENTIFICATION."
                 android:textSize="15dp"
                 android:textColor="@color/white"/>
-
-
             <ImageView
                 android:id="@+id/appPic"
                 android:layout_width="100dp"
@@ -65,18 +61,15 @@
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="10dp">
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="16dp">
-
                     <ImageView
                         android:id="@+id/img1"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/anshul"/>
-
                     <TextView
                         android:id="@+id/text1"
                         android:layout_toRightOf="@+id/img1"
@@ -86,7 +79,6 @@
                         android:textSize="25dp"
                         android:textStyle="bold"
                         android:textColor="@color/yellow"/>
-
                     <LinearLayout
                         android:layout_marginTop="10dp"
                         android:layout_alignParentRight="true"
@@ -117,7 +109,6 @@
                             android:layout_height="50dp"
                             android:scaleType="fitCenter"
                             android:src="@drawable/instagram"/>
-
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
@@ -135,7 +126,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="16dp">
-
                     <TextView
                         android:id="@+id/text2"
                         android:layout_width="wrap_content"
@@ -144,7 +134,6 @@
                         android:textSize="30dp"
                         android:textStyle="bold"
                         android:textColor="@color/yellow"/>
-
                     <LinearLayout
                         android:layout_marginTop="10dp"
                         android:layout_toLeftOf="@+id/img2"
@@ -175,9 +164,7 @@
                             android:layout_height="50dp"
                             android:scaleType="fitCenter"
                             android:src="@drawable/instagram"/>
-
                     </LinearLayout>
-
                     <ImageView
                         android:layout_alignParentRight="true"
                         android:id="@+id/img2"
@@ -195,18 +182,15 @@
                 app:cardElevation="6dp"
                 app:cardCornerRadius="12dp"
                 android:layout_margin="10dp">
-
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="16dp">
-
                     <ImageView
                         android:id="@+id/img3"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:src="@drawable/bhati"/>
-
                     <TextView
                         android:id="@+id/text3"
                         android:layout_toRightOf="@+id/img3"
@@ -216,7 +200,6 @@
                         android:textSize="25dp"
                         android:textStyle="bold"
                         android:textColor="@color/yellow"/>
-
                     <LinearLayout
                         android:layout_marginTop="10dp"
                         android:layout_alignParentRight="true"
@@ -247,14 +230,9 @@
                             android:layout_height="50dp"
                             android:scaleType="fitCenter"
                             android:src="@drawable/instagram"/>
-
                     </LinearLayout>
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
-
         </GridLayout>
-
-
     </LinearLayout>
-
 </ScrollView>

@@ -15,17 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class SearchResultsRVAdapter extends RecyclerView.Adapter<SearchResultsRVAdapter.ViewHolder> {
-
     // arraylist for storing our data and context
     private ArrayList<DataModal> dataModalArrayList;
     private Context context;
-
     // constructor for our variables.
     public SearchResultsRVAdapter(ArrayList<DataModal> dataModalArrayList, Context context) {
         this.dataModalArrayList = dataModalArrayList;
         this.context = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -62,14 +59,12 @@ public class SearchResultsRVAdapter extends RecyclerView.Adapter<SearchResultsRV
     public class ViewHolder extends RecyclerView.ViewHolder {
         // creating variables for our text view.
         private TextView titleTV, descTV, snippetTV;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             // initializing our views with their ids.
             titleTV = itemView.findViewById(R.id.idTVTitle);
             descTV = itemView.findViewById(R.id.idTVDescription);
             snippetTV = itemView.findViewById(R.id.idTVSnippet);
-
         }
     }
 }
