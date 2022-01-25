@@ -1,0 +1,1 @@
+This android project is made to implement the firebase  and create useable app for language translation, search the internet using image (image search) , and detect text from image all using java with the help of android studio.
